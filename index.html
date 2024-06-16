@@ -1,0 +1,51 @@
+<!-- Alex Micael Chen Hsieh, Web Development 84 (Odd), Periods 5 and 6, 10/29/2021 -->
+<!-- Over the course of this project, some of the things I learned include how to use arrays in JavaScript, hover and active effects in CSS, how to use variables (global, local, or parameters), and more. Looking back, I think did a very good job. I cycled through various ideas on how to implement this game, and I think I ended up using the best one. By using arrays, I was able to easily keep track of how many weapons each player, easily select one randomly, and easily display them. Really, implementing the basic mechanics and decorating the site went really well, but getting the more complicated functions to work, did take some time. I think it's very clear that this project is very similar to last unit's, I built upon the CSS I learned last time, and used the same card design with all sorts of visual effects. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Match Game</title>
+    <link rel="preconnect" href="https://fontts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+</head>
+
+<body onload="updateTurn(); confettiVisibile();">
+    <div class="container" id="winScreen">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+    <h1>Extreme Rock Paper Scissors</h1>
+    <div id="turn"><b>Turn: </b></div>
+    <div id="playerCardPicked"><b>You Chose: </b></div>
+    <div id="cpuCardPicked"><b>The Opponent Chose: </b></div>
+    <div id="message">Click any of these cards (Rock, Paper, Scissors, Random) to start!</div>
+    <br>
+    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/309/rock_1faa8.png" class="card" alt="Rock" onclick="playerTurn(' 🪨')" title="Rock"></img>
+    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/309/page-with-curl_1f4c3.png" class="card" alt="Paper" onclick="playerTurn(' 📃')" title="Paper"></img>
+    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/309/scissors_2702-fe0f.png" class="card" alt="Scissors" onclick="playerTurn(' ✂️')" title="Scissors"></img>
+    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/microsoft/309/shuffle-tracks-button_1f500.png" class="card" alt="Random" onclick="playerTurn(playerCards[Math.floor(Math.random()*playerCards.length)])" title="Random"></img>
+    <br> <br> <br>
+    <div id="playerDeckDisplay">Your Deck:</div>
+    <div id="cpuDeckDisplay">Opponents's Deck:</div>
+    <br> <br>
+    <button onclick="resetGame()" title="Reset the Game"><b>Reset</b></button>
+    <button onclick="rulesVisibile()" title="Show/Hide Rules"><b>Rules</b></button>
+    <button onclick="logVisibile()" title="Show/Hide Log"><b>Log</b></button>
+    <br> <br>
+    <div id="rules"><b>Rules:</b></div>
+    <p id="rules2" style="margin-left:100px; margin-right:100px;">In Extreme Rock Paper Scissors, you control a limited arsenal of weapons (rock, paper, scissors) against a computer opponent. To win, you must capture all of your opponent's arsenal. During each round, you select a card and the winner loses their card to the winner. Rock beats scissors, scissors beats paper, and paper beats rock. And in case of a tie, both players receive their weapon back. This continues until one you or the opponent has no more weapons. Additionally, if the same weapon is used 3 times in a row, it breaks and becomes unusable, and if you tie 3 times in a row, you and the opponent will lose a random weapon.</p>
+    <br>
+    <div id="log"><b>Log:</b></div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
